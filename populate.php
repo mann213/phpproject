@@ -18,10 +18,12 @@ $query = "SELECT * FROM `persons`";
 $result = mysqli_query($connect, $query);
 
 $dataRow = "";
+$json = array();
 
 while($row = mysqli_fetch_array($result))
 {
-    //$dataRow = $dataRow."<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td></tr>";
+  $json[] = $row;
 }
+echo json_encode(['records'=>$json]);
 
 ?>
